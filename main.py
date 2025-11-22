@@ -16,6 +16,7 @@ def get_font_name_data(font_path: str) -> dict | None:
 
     :param font_path: 字体文件路径
     :return: 包含文件路径和所有 name 记录的字典，如果出错则返回 None
+
     """
     try:
         font = TTFont(font_path, lazy=True)
@@ -50,9 +51,7 @@ def get_font_name_data(font_path: str) -> dict | None:
 
 
 def scan_fonts_in_current_directory() -> list[dict]:
-    """
-    扫描当前目录及其子目录下的所有字体文件，并读取其 name 表数据。
-    """
+
     font_info_list = []
     font_extensions = ('.ttf', '.otf', '.ttc', '.otc')
 
@@ -71,12 +70,7 @@ def scan_fonts_in_current_directory() -> list[dict]:
 
 
 def display_font_info(font_info_list: list[dict], mode: int):
-    """
-    根据指定模式显示字体信息。
 
-    :param font_info_list: 包含字体信息的列表
-    :param mode: 1 - 仅显示 PostScript 名称, 2 - 显示所有信息
-    """
     if not font_info_list:
         print("\n在当前程序目录及其子目录下未找到任何可识别的有效字体文件。")
         return
